@@ -1,0 +1,15 @@
+<view class="categories-container">
+  <view class="category-name {{ index == selectedIndex ? 'active' : '' }}" wx:for="{{ categories }}" bindtap="onCategoryTapped" data-index="{{ index }}">
+    {{ item }}
+  </view>
+</view>
+
+<view class="news-container">
+  <view class="news-item" wx:for="{{ newsItems }}" wx:key="id">
+    <view class="news-info-container">
+      <view class="news-title">{{ item.title }}</view>
+      <view class="news-source">{{ item.source }} {{ item.time }}</view>
+    </view>
+    <view style="background-image:url({{ item.firstImage }})" class="news-image"></view>
+  </view>
+</view>
