@@ -1,0 +1,14 @@
+<view class="news-detail-container">
+  <view class="news-detail-title">{{ detail.title }}</view>
+  <view class="news-detail-meta">
+    <view>{{ detail.source }}</view>
+    <view class="news-detail-time">{{ detail.shortTime }}</view>
+    <view>阅读 {{ detail.readCount }}</view>
+  </view>
+  <view class="news-detail-content">
+    <view wx:for="{{ detail.content }}" wx:key="id">
+      <view wx:if="{{ item.type === 'p' }}" class="paragraph">{{ item.text }}</view>
+      <image wx:if="{{ item.type === 'image' }}" src="{{ item.src }}" class="image" mode="widthFix" lazy-load="true"></image>
+    </view>
+  </view>
+</view>

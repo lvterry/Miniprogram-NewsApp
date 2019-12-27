@@ -25,7 +25,20 @@ Page({
     } 
   },
 
-  getNews() {
+  newsItemTapped (event) {
+    let itemId = event.currentTarget.dataset.id
+    wx.navigateTo({
+      url: `/pages/detail/detail?id=${itemId}`
+    })
+  },
+
+  onPullDownRefresh () {
+    this.getNews(()=> {
+      wx.stopPullDownRefresh()
+    })
+  },
+
+  getNews(callback) {
     wx.request({
       url: 'https://test-miniprogram.com/api/news/list',
       data: {
@@ -39,7 +52,8 @@ Page({
         this.setData({
           newsItems: result
         })
-      }
+      },
+      complete: () => callback && callback()
     })
   }
 })

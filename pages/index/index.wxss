@@ -48,5 +48,4 @@
   margin-left: 20rpx;
   width: 240rpx;
   height: 160rpx;
-  background-size: cover;
 }
