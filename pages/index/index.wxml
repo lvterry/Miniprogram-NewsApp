@@ -10,6 +10,6 @@
       <view class="news-title">{{ item.title }}</view>
       <view class="news-source">{{ item.source }} {{ item.time }}</view>
     </view>
-    <image src="{{ item.firstImage }}" mode="aspectFill" class="news-image" lazy-load="true"></image>
+    <image src="{{ item.firstImage ? item.firstImage : '/images/default-image.png' }}" mode="aspectFill" class="news-image" lazy-load="true"></image>
   </view>
 </view>
